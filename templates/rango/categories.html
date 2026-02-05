@@ -1,0 +1,25 @@
+1 <ul>
+2 {% if categories %}
+3 {% for c in categories %}
+4 <li><a href="{% url 'rango:show_category' c.slug %}">{{ c.name }}</a></li>
+5 {% endfor %}
+6 {% else %}
+7 <li><strong>There are no categories present.</strong></li>
+8 {% endif %}
+9 </ul>
+
+<ul> 
+    {% for c in categories %}
+     {% if c == current_category %}
+     <li>
+      <strong><a href="{% url 'rango:show_category' c.slug %}">{{c.name}}</a></strong> 
+      </li>
+ {% else %}
+<li>
+<a href="{% url 'rango:show_category' c.slug %}">{{ c.name }}</a>
+</li>
+{% endif %}
+{% endfor %}
+</ul>
+
+
